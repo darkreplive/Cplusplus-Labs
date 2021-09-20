@@ -28,6 +28,7 @@ namespace cst8219 {
 
 int main(int argc, char** argv)
 {
+	//test
 	cst8219::Vehicle myVehicle(4,2);
 	cout << "Hello World!" << endl;
 	return 0;

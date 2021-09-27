@@ -51,7 +51,7 @@ int main(int argc, char** argv)
 					cin.clear();
 				}
 			}
-			
+
 			while (true) {
 				cout << "Enter number of wheels" << endl;
 				if (cin >> w) {

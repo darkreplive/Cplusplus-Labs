@@ -39,12 +39,29 @@ int main(int argc, char** argv)
 
 		}
 		else {
-			cout << "Enter number of doors" << endl;
 			int d;
-			cin >> d;
-			cout << "Enter number of wheels" << endl;
 			int w;
-			cin >> w;
+			while (true) {
+				cout << "Enter number of doors" << endl;
+				if (cin >> d) {
+					break;
+				}
+				else {
+					cout << "Please only enter integer values" << endl;
+					cin.clear();
+				}
+			}
+			
+			while (true) {
+				cout << "Enter number of wheels" << endl;
+				if (cin >> w) {
+					break;
+				}
+				else {
+					cout << "Please only enter integer values" << endl;
+					cin.clear();
+				}
+			}
 			cst8219::Vehicle pVehicle(d, w);
 		}
 	} while (answer != 'q');

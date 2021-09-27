@@ -1,4 +1,4 @@
-﻿// Lab2.cpp : Using Git
+﻿// Lab3.cpp : Defines the entry point for the application.
 //
 
 #include<iostream>
@@ -28,8 +28,30 @@ namespace cst8219 {
 
 int main(int argc, char** argv)
 {
-	//test
-	cst8219::Vehicle myVehicle(4,2);
+	cst8219::Vehicle veh1; // This calls constructor Vehicle()
+	cst8219::Vehicle veh2(4); //This calls constructor Vehicle(int);
+	cst8219::Vehicle veh3(4, 2); //This calls constructor Vehicle( int, int)
+	char answer;
+	do {
+		cout << "Do you want to create a vehicle or quit? (Q for quit)" << endl; //asks user if they want to continue
+		cin >> answer;
+		if (answer == 'q') {
+
+		}
+		else {
+			cout << "Enter number of doors" << endl;
+			int d;
+			cin >> d;
+			cout << "Enter number of wheels" << endl;
+			int w;
+			cin >> w;
+			cst8219::Vehicle pVehicle(d, w);
+		}
+	} while (answer != 'q');
+
 	cout << "Hello World!" << endl;
+	cout << "Vehicle 1 takes " << sizeof(veh1) << endl;
+	cout << "Vehicle 2 takes " << sizeof(veh2) << endl;
+	cout << "Vehicle 3 takes " << sizeof(veh3) << endl;
 	return 0;
 }

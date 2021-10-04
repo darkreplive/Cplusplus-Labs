@@ -13,18 +13,10 @@ class Vehicle {
 		~Vehicle();
 		void printVehicle(Vehicle v);
 
-		int  getDoors() {
-			return numDoors;
-		}
-		int  getWheels() {
-			return numWheels;
-		}
+		int  getDoors();
+		int  getWheels();
 
-		void setDoors(int d) {
-			numDoors = d;
-		}
+		void setDoors(int d);
 
-		void setWheels(int q) {
-			numWheels = q;
-		}
+		void setWheels(int q);
 	};

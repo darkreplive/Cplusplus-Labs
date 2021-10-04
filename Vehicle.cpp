@@ -33,3 +33,18 @@ Vehicle::Vehicle(Vehicle* copy) {
 	setDoors(copy->getDoors());
 	setWheels(copy->getWheels());
 }
+
+int  Vehicle::getDoors() {
+	return numDoors;
+}
+int  Vehicle::getWheels() {
+	return numWheels;
+}
+
+void Vehicle::setDoors(int d) {
+	numDoors = d;
+}
+
+void Vehicle::setWheels(int q) {
+	numWheels = q;
+}

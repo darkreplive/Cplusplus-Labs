@@ -16,15 +16,15 @@ int main(int argc, char** argv)
 {
 	Vehicle original; //empty constructor no ()
 	Vehicle copy(original); // copy constructor by reference
+	cout << "Original is: " << original << " Copy is : " << copy << endl;
+	cout << "Increment original: " << original++ << " Increment copy: " << ++copy << endl;
+	cout << "Decrement original: " << --original << " Decrement copy: " << copy-- << endl;
 
-	Vehicle secondCopy(&original); //copy constructor by pointer
-	copy.printVehicle(copy);
-	CreateVehicle(copy, 2); //wheels is 2, everything else is default value
-	copy.printVehicle(copy);
-	CreateVehicle(copy, 2, 3); //wheels is 2, doors is 3
-	copy.printVehicle (copy);
-	copy = secondCopy;
-	copy.printVehicle(copy);// copy is same as second copy
-	cout << " week 4 works" << endl;
+	cout << "Compare equality 1: " << (original == copy) << endl;
+	cout << "Compare equality 2: " << (--original == ++copy) << endl;
+	cout << "Compare inequality: " << (original != copy) << endl;
+	cout << "Assignment operator: " << (original = copy) << endl;
+
+	cout << " week 5 works" << endl;
 	return 0;
 }

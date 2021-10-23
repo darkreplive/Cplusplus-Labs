@@ -17,12 +17,6 @@ Vehicle::~Vehicle() {
 	cout << "In destructor" << endl;
 }
 
-void Vehicle::printVehicle(Vehicle v) {
-	cout << "Vehicle at address:" << &v <<
-		" Doors: " << v.getDoors() <<
-		" Wheels: " << v.getWheels() << endl ;
-}
-
 Vehicle::Vehicle(Vehicle& copy) {
 	setDoors(copy.getDoors());
 	setWheels(copy.getWheels());
@@ -34,10 +28,10 @@ Vehicle::Vehicle(Vehicle* copy) {
 	setWheels(copy->getWheels());
 }
 
-int  Vehicle::getDoors() {
+int  Vehicle::getDoors()const {
 	return numDoors;
 }
-int  Vehicle::getWheels() {
+int  Vehicle::getWheels()const {
 	return numWheels;
 }
 
@@ -47,4 +41,52 @@ void Vehicle::setDoors(int d) {
 
 void Vehicle::setWheels(int q) {
 	numWheels = q;
+}
+
+Vehicle& Vehicle::operator=(Vehicle& other) {
+	Vehicle *temp(this);
+	return *temp;
+}
+
+bool Vehicle::operator==(const Vehicle& other) {
+	if (this->getDoors() == other.getDoors() && this->getWheels() == other.getWheels()) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+bool Vehicle::operator!=(const Vehicle& other) {
+	if (this->getDoors() == other.getDoors() && this->getWheels() == other.getWheels()) {
+		return false;
+	}
+	else {
+		return true;
+	}
+}
+
+Vehicle& Vehicle::operator++(void) {//prefix ++v
+	this->numDoors++;
+	this->numWheels++;
+	return *this;
+}
+
+Vehicle& Vehicle::operator++(int i) {//postfix v++
+	Vehicle *temp(this);
+	this->numDoors++;
+	this->numWheels++;
+	return *temp;
+}
+
+Vehicle& Vehicle::operator--(void) {//prefix --v
+	this->numDoors--;
+	this->numWheels--;
+	return *this;
+}
+
+Vehicle& Vehicle::operator--(int i) {//postfix v--
+	Vehicle *temp(this);
+	this->numDoors--;
+	this->numWheels--;
+	return *temp;
 }

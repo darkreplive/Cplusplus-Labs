@@ -1,4 +1,4 @@
-﻿// Lab3.cpp : Defines the entry point for the application.
+﻿// Lab5.cpp : Defines the entry point for the application.
 //
 
 #include<iostream>

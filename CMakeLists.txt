@@ -6,6 +6,6 @@ cmake_minimum_required (VERSION 3.8)
 project ("Lab2")
 
 # Add source to this project's executable.
-add_executable (Lab2 "Week2.cpp" "Vehicle.h")
+add_executable (Lab2 "Week2.cpp" "Vehicle.h" "GasolineVehicle.cpp" "Hybrid.cpp")
 
 # TODO: Add tests and install targets if needed.

@@ -2,6 +2,7 @@
 class Vehicle {
 		int numWheels;
 		int numDoors;
+		float efficiencyRating;
 	public:
 		
 		Vehicle(Vehicle&);
@@ -27,8 +28,9 @@ class Vehicle {
 		void setDoors(int d);
 		void setWheels(int q);
 		
+		
 	};
-std::ostream& operator<<(std::ostream& out, const Vehicle& v) {
+/*std::ostream& operator<<(std::ostream& out, const Vehicle& v) {
 	out << "Wheels are: " << v.getWheels() <<" Doors are: "<< v.getDoors();
-	return out;
-}
+	return out; 
+} */

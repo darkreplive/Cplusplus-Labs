@@ -1,5 +1,6 @@
 ﻿// Lab6.cpp : Defines the entry point for the application.
-//
+//040979598
+//November 5th 2021
 
 
 #include"HybridVehicle.h"

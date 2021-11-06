@@ -1,20 +1,19 @@
 #include "Vehicle.h"
-#include <iostream>
 using namespace std;
 
 Vehicle::Vehicle(int w, int d) {
 	numDoors = d;
 	numWheels = w;
-	cout << "In constructor with 2 parameters" << endl;
+	//cout << "In constructor with 2 parameters" << endl;
 }
 Vehicle::Vehicle(int w) : Vehicle(4, 4) { 
-	cout << "In constructor with 1 parameters, wheels =" << w << endl; 
+	//cout << "In constructor with 1 parameters, wheels =" << w << endl; 
 	}
 Vehicle::Vehicle() : Vehicle(4) {
-	cout << "In constructor with 0 parameters" << endl;
+	//cout << "In constructor with 0 parameters" << endl;
 }
 Vehicle::~Vehicle() {
-	cout << "In destructor" << endl;
+	//cout << "In destructor" << endl;
 }
 
 Vehicle::Vehicle(Vehicle& copy) {
@@ -90,3 +89,4 @@ Vehicle& Vehicle::operator--(int i) {//postfix v--
 	this->numWheels--;
 	return *temp;
 }
+

@@ -1,13 +1,15 @@
-﻿// Lab6.cpp : Defines the entry point for the application.
+﻿// Lab7.cpp : Defines the entry point for the application.
 //040979598
-//November 5th 2021
+//November 11th 2021
 
 
 #include"HybridVehicle.h"
 #include <iostream>
+#include <vector>
 using namespace std;
 
-Vehicle* testVehicle(Vehicle* pVehicle, const char* vehicleName) {
+template<class T>
+T testVehicle(T pVehicle, const char* vehicleName) {
 
 	cout << vehicleName << "’s range is: " << pVehicle->calculateRange() << endl;
 	pVehicle->drive(150); //drive 150 km
@@ -16,14 +18,51 @@ Vehicle* testVehicle(Vehicle* pVehicle, const char* vehicleName) {
 	return pVehicle;
 }
 
+namespace Helper {
+	template<class T>
+	T min(T a, T b) {
+		if (a < b) {
+			return a;
+		}
+		else {
+			return b;
+		}
+	}
+	template<class T>
+	T max(T a, T b) {
+		if (a < b) {
+			return b;
+		}
+		else {
+			return a;
+		}
+	}
+
+}
+
+
+void testTemplateLibrary() {
+	vector<float> hold = { 5.0f,4.0f,3.0f,2.0f,1.0f };
+	while(!hold.empty()){
+		cout << "Last Element : " << hold.back() << " "; //print the last element
+		hold.pop_back(); // removes the last element
+	}
+}
 
 int main(int argc, char** argv)
 {
 	//50L of gas, 7.1 L/100km
 	delete  testVehicle(new GasolineVehicle(50, 7.1), "Corolla");
 	//42 L of gas, 4.3 L/100km, 8.8kWh, 22 kWh/100km
-	delete testVehicle(dynamic_cast<ElectricVehicle*>(new HybridVehicle(42, 4.3, 8.8, 22.0)), "Prius");
+	delete testVehicle((new HybridVehicle(42, 4.3, 8.8, 22.0)), "Prius");
 	//75 kWh, 16 kWh/100km
 	delete testVehicle(new ElectricVehicle(75, 16), "Tesla 3");
+
+	cout << "min of 5 and 7 is:" << Helper::min(5, 7) << endl;
+	cout << "max of 5 and 7 is:" << Helper::max(5, 7) << endl;
+
+	cout << "min of string(Hello) and string(world) is:" << Helper::min(string("Hello"), string("World")) << endl;
+	cout << "max of string(Hello) and string(world) is:" << Helper::max(string("Hello"), string("World")) << endl;
+	testTemplateLibrary();
 	return 0;
 }

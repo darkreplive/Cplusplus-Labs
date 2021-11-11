@@ -11,10 +11,10 @@ public:
 	HybridVehicle(float maxGas, float gasEfficiency, float maxCharge, float electricEfficiency);
 	~HybridVehicle();
 
-	virtual float calculateRange();
+	 float calculateRange();
 
-	virtual float percentEnergyRemaining();
+	 float percentEnergyRemaining();
 
-	virtual void drive(float km);
+	 void drive(float km);
 
 };

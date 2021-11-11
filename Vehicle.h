@@ -14,7 +14,7 @@ class Vehicle {
 		Vehicle(int w, int d);
 		Vehicle(int w);
 		Vehicle();
-		virtual ~Vehicle();
+		~Vehicle();
 		Vehicle& operator=(Vehicle& other);
 		bool operator==(const Vehicle&);
 		bool operator!=(const Vehicle&);
@@ -37,10 +37,6 @@ class Vehicle {
 		void setEngine(float e) {
 			engineEfficiency = e;
 		}
-
-		virtual float calculateRange()=0;
-		virtual float percentEnergyRemaining()=0;
-		virtual void drive(float km)=0;
 
 	};
 

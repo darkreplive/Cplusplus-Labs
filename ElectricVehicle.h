@@ -9,11 +9,11 @@ public:
 	ElectricVehicle();
 	ElectricVehicle(float max, float efficiency);
 	~ElectricVehicle();
-	virtual float calculateRange();
+	 float calculateRange();
 
-	virtual float percentEnergyRemaining();
+	 float percentEnergyRemaining();
 
-	virtual void drive(float km);
+	 void drive(float km);
 
 	void setmaxEnergy(float max);
 	float getmaxEnergy();

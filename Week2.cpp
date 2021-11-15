@@ -1,74 +1,66 @@
-﻿// Lab3.cpp : Defines the entry point for the application.
-//
+﻿// Lab7.cpp : Defines the entry point for the application.
+//040979598
+//November 11th 2021
 
-#include<iostream>
+
+#include"HybridVehicle.h"
+#include <iostream>
+#include <vector>
 using namespace std;
 
-namespace cst8219 {
-	class Vehicle {
-	private:
-		int numWheels;
-		int numDoors;
-	public:
-		Vehicle(int w, int d) {
-			numDoors = d;
-			numWheels = w;
-			cout << "In constructor with 2 parameters" << endl;
+template<class T>
+T testVehicle(T pVehicle, const char* vehicleName) {
+
+	cout << vehicleName << "’s range is: " << pVehicle->calculateRange() << endl;
+	pVehicle->drive(150); //drive 150 km
+	cout << vehicleName << "’s energy left is: " << pVehicle->percentEnergyRemaining() << endl;
+	cout << vehicleName << "’s range is now: " << pVehicle->calculateRange() << endl;
+	return pVehicle;
+}
+
+namespace Helper {
+	template<class T>
+	T min(T a, T b) {
+		if (a < b) {
+			return a;
 		}
-		Vehicle(int w) : Vehicle(4, 4) { cout << "In constructor with 1 parameters, wheels =" << w << endl; }
-		Vehicle() : Vehicle(4) {
-			cout << "In constructor with 0 parameters" << endl;
+		else {
+			return b;
 		}
-		~Vehicle() {
-			cout << "In destructor" << endl;
+	}
+	template<class T>
+	T max(T a, T b) {
+		if (a < b) {
+			return b;
 		}
-	};
+		else {
+			return a;
+		}
+	}
+
 }
 
 
+void testTemplateLibrary() {
+	vector<float> hold = { 5.0f,4.0f,3.0f,2.0f,1.0f };
+	while(!hold.empty()){
+		cout << "Last Element : " << hold.back() << " "; //print the last element
+		hold.pop_back(); // removes the last element
+	}
+}
+
 int main(int argc, char** argv)
 {
-	cst8219::Vehicle veh1; // This calls constructor Vehicle()
-	cst8219::Vehicle veh2(4); //This calls constructor Vehicle(int);
-	cst8219::Vehicle veh3(4, 2); //This calls constructor Vehicle( int, int)
-	char answer;
-	do {
-		cout << "Do you want to create a vehicle or quit? (Q for quit)" << endl; //asks user if they want to continue
-		cin >> answer;
-		if (answer == 'q') {
+	//50L of gas, 7.1 L/100km
+	delete  testVehicle(new GasolineVehicle(50, 7.1), "Corolla");
+	//42 L of gas, 4.3 L/100km, 8.8kWh, 22 kWh/100km
+	delete testVehicle((new HybridVehicle(42, 4.3, 8.8, 22.0)), "Prius");
+	//75 kWh, 16 kWh/100km
+	delete testVehicle(new ElectricVehicle(75, 16), "Tesla 3");
 
-		}
-		else {
-			int d;
-			int w;
-			while (true) {
-				cout << "Enter number of doors" << endl;
-				if (cin >> d) {
-					break;
-				}
-				else {
-					cout << "Please only enter integer values" << endl;
-					cin.clear();
-				}
-			}
 
-			while (true) {
-				cout << "Enter number of wheels" << endl;
-				if (cin >> w) {
-					break;
-				}
-				else {
-					cout << "Please only enter integer values" << endl;
-					cin.clear();
-				}
-			}
-			cst8219::Vehicle pVehicle(d, w);
-		}
-	} while (answer != 'q');
-
-	cout << "Hello World!" << endl;
-	cout << "Vehicle 1 takes " << sizeof(veh1) << endl;
-	cout << "Vehicle 2 takes " << sizeof(veh2) << endl;
-	cout << "Vehicle 3 takes " << sizeof(veh3) << endl;
+	cout << "min of string(Hello) and string(world) is:" << Helper::min(string("Hello"), string("World")) << endl;
+	cout << "max of string(Hello) and string(world) is:" << Helper::max(string("Hello"), string("World")) << endl;
+	testTemplateLibrary();
 	return 0;
 }

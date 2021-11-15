@@ -58,8 +58,6 @@ int main(int argc, char** argv)
 	//75 kWh, 16 kWh/100km
 	delete testVehicle(new ElectricVehicle(75, 16), "Tesla 3");
 
-	cout << "min of 5 and 7 is:" << Helper::min(5, 7) << endl;
-	cout << "max of 5 and 7 is:" << Helper::max(5, 7) << endl;
 
 	cout << "min of string(Hello) and string(world) is:" << Helper::min(string("Hello"), string("World")) << endl;
 	cout << "max of string(Hello) and string(world) is:" << Helper::max(string("Hello"), string("World")) << endl;
